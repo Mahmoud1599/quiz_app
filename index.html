@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Quiz Just For You 💌</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Petals -->
+    <div class="petals-bg" id="petals"></div>
+    <div class="corner tl">🌸</div>
+    <div class="corner tr">🌸</div>
+    <div class="corner bl">🌸</div>
+    <div class="corner br">🌸</div>
+
+    <!-- Progress -->
+    <div class="progress-bar" id="progress" style="width: 0%"></div>
+
+    <!-- ══════════ PAGE 0: LANDING ══════════ -->
+    <div class="page active" id="page-0">
+      <div class="landing-wrap">
+        <div class="landing-icon">💌</div>
+        <h1>Are you ready,<br /><em>Mawadaty?</em></h1>
+        <p>
+          I made something just for you.<br />A little quiz, a little surprise.
+        </p>
+        <button class="btn-main" onclick="startQuiz()">I'm ready 🌸</button>
+      </div>
+    </div>
+
+    <!-- ══════════ QUESTION PAGES ══════════ -->
+    <!-- Q1: Multiple Choice -->
+    <div class="page" id="page-1">
+      <div class="q-number">Question 1 of 6</div>
+      <div class="q-wrap">
+        <div class="q-card">
+          <div class="q-text">
+            Before we met, did you think I'd be your type of person?
+          </div>
+          <div class="choices" id="choices-1">
+            <button
+              class="choice-btn"
+              onclick="selectChoice(1,this,'Words of Affirmation')"
+            >
+              I don't know, maybe yes
+            </button>
+            <button
+              class="choice-btn"
+              onclick="selectChoice(1,this,'Acts of Service')"
+            >
+              Absolutely yes
+            </button>
+            <button
+              class="choice-btn"
+              onclick="selectChoice(1,this,'Quality Time')"
+            >
+              yes of course
+            </button>
+            <button
+              class="choice-btn"
+              onclick="selectChoice(1,this,'Physical Touch')"
+            >
+              I never thought I would meet a man like you
+            </button>
+          </div>
+        </div>
+        <button
+          class="submit-btn"
+          id="submit-1"
+          disabled
+          onclick="submitAnswer(1)"
+        >
+          Submit ♥
+        </button>
+      </div>
+      <div class="flip-card-wrap" id="flip-1">
+        <div class="flip-card" id="fc-1" onclick="flipCard(1)">
+          <div class="flip-front">
+            <div class="flip-front-icon">✨</div>
+            <div class="flip-front-text">
+              Touch me to reveal a fact about Mahmoud
+            </div>
+            <div class="flip-hint">tap to flip</div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-icon">💕</div>
+            <div class="flip-back-text">
+              If you asked me how many times you came in my mind, I would say
+              once, because you came and never left...
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="continue-btn" id="next-1" onclick="goNext(2)">
+        Continue → Next Question
+      </button>
+    </div>
+
+    <!-- Q2: Essay -->
+    <div class="page" id="page-2">
+      <div class="q-number">Question 2 of 6</div>
+      <div class="q-wrap">
+        <div class="q-card">
+          <div class="q-text">
+            What is one memory with me make you smill when you remember it?
+          </div>
+          <textarea
+            class="essay-area"
+            id="essay-2"
+            placeholder="Write whatever comes to your heart…"
+            oninput="enableEssaySubmit(2)"
+          ></textarea>
+        </div>
+        <button
+          class="submit-btn"
+          id="submit-2"
+          disabled
+          onclick="submitAnswer(2)"
+        >
+          Submit ♥
+        </button>
+      </div>
+      <div class="flip-card-wrap" id="flip-2">
+        <div class="flip-card" id="fc-2" onclick="flipCard(2)">
+          <div class="flip-front">
+            <div class="flip-front-icon">✨</div>
+            <div class="flip-front-text">
+              Touch me to reveal a fact about meeting you
+            </div>
+            <div class="flip-hint">tap to flip</div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-icon">🌅</div>
+            <div class="flip-back-text">
+              No matter how much time I spend with you, I always end up wanting
+              more.
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="continue-btn" id="next-2" onclick="goNext(3)">
+        Continue → Next Question
+      </button>
+    </div>
+
+    <!-- Q3: Essay -->
+    <div class="page" id="page-3">
+      <div class="q-number">Question 3 of 6</div>
+      <div class="q-wrap">
+        <div class="q-card">
+          <div class="q-text">
+            If you could describe me in one sentence, what would it be? 🌿
+          </div>
+          <textarea
+            class="essay-area"
+            id="essay-3"
+            placeholder="Be honest… I can take it 😄"
+            oninput="enableEssaySubmit(3)"
+          ></textarea>
+        </div>
+        <button
+          class="submit-btn"
+          id="submit-3"
+          disabled
+          onclick="submitAnswer(3)"
+        >
+          Submit ♥
+        </button>
+      </div>
+      <div class="flip-card-wrap" id="flip-3">
+        <div class="flip-card" id="fc-3" onclick="flipCard(3)">
+          <div class="flip-front">
+            <div class="flip-front-icon">✨</div>
+            <div class="flip-front-text">Touch me to reveal my answer</div>
+            <div class="flip-hint">tap to flip</div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-icon">🌿</div>
+            <div class="flip-back-text">
+              Mine would be : you are a one of kind, I have never met such a
+              woman with self-confidence and personality like you.
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="continue-btn" id="next-3" onclick="goNext(4)">
+        Continue → Next Question
+      </button>
+    </div>
+
+    <!-- Q4: Multiple Choice -->
+    <div class="page" id="page-4">
+      <div class="q-number">Question 4 of 6</div>
+      <div class="q-wrap">
+        <div class="q-card">
+          <div class="q-text">
+            Who is the person you think about most every day?
+          </div>
+          <div class="choices" id="choices-4">
+            <button
+              class="choice-btn"
+              onclick="selectChoice(4,this,'A rooftop dinner under the stars')"
+            >
+              I don't know, maybe Mahmoud!
+            </button>
+            <button
+              class="choice-btn"
+              onclick="selectChoice(4,this,'A quiet beach at sunset')"
+            >
+              Mahmoud, of course
+            </button>
+            <button
+              class="choice-btn"
+              onclick="selectChoice(4,this,'An adventure in a city we\'ve never been')"
+            >
+              Mahmoud with out thinking
+            </button>
+            <button
+              class="choice-btn"
+              onclick="selectChoice(4,this,'A cozy night in with homemade everything')"
+            >
+              wait let me think , eeeeeeeh , Mahmoud I think
+            </button>
+          </div>
+        </div>
+        <button
+          class="submit-btn"
+          id="submit-4"
+          disabled
+          onclick="submitAnswer(4)"
+        >
+          Submit ♥
+        </button>
+      </div>
+      <div class="flip-card-wrap" id="flip-4">
+        <div class="flip-card" id="fc-4" onclick="flipCard(4)">
+          <div class="flip-front">
+            <div class="flip-front-icon">✨</div>
+            <div class="flip-front-text">Touch me to reveal a fact</div>
+            <div class="flip-hint">tap to flip</div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-icon">🗺️</div>
+            <div class="flip-back-text">
+              once I get up and before I go to sleep, I check for your
+              notifications and the rest of the day I'm waiting for them.
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="continue-btn" id="next-4" onclick="goNext(5)">
+        Continue → Next Question
+      </button>
+    </div>
+
+    <!-- Q5: Essay -->
+    <div class="page" id="page-5">
+      <div class="q-number">Question 5 of 6</div>
+      <div class="q-wrap">
+        <div class="q-card">
+          <div class="q-text">
+            what is something I'm better at than anyone you've ever met?
+          </div>
+          <textarea
+            class="essay-area"
+            id="essay-5"
+            placeholder="This is your moment, take your time…"
+            oninput="enableEssaySubmit(5)"
+          ></textarea>
+        </div>
+        <button
+          class="submit-btn"
+          id="submit-5"
+          disabled
+          onclick="submitAnswer(5)"
+        >
+          Submit ♥
+        </button>
+      </div>
+      <div class="flip-card-wrap" id="flip-5">
+        <div class="flip-card" id="fc-5" onclick="flipCard(5)">
+          <div class="flip-front">
+            <div class="flip-front-icon">✨</div>
+            <div class="flip-front-text">Touch me to reveal my answer</div>
+            <div class="flip-hint">tap to flip</div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-icon">💭</div>
+            <div class="flip-back-text">
+              The best one I met that set her boundaries easily
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="continue-btn" id="next-5" onclick="goNext(6)">
+        Continue → Next Question
+      </button>
+    </div>
+
+    <!-- Q6: Essay -->
+    <div class="page" id="page-6">
+      <div class="q-number">Question 6 of 6</div>
+      <div class="q-wrap">
+        <div class="q-card">
+          <div class="q-text">
+            what is one trait of mine do you hope never changes?
+          </div>
+          <textarea
+            class="essay-area"
+            id="essay-6"
+            placeholder="Dream as big as you want…"
+            oninput="enableEssaySubmit(6)"
+          ></textarea>
+        </div>
+        <button
+          class="submit-btn"
+          id="submit-6"
+          disabled
+          onclick="submitAnswer(6)"
+        >
+          Submit ♥
+        </button>
+      </div>
+      <div class="flip-card-wrap" id="flip-6">
+        <div class="flip-card" id="fc-6" onclick="flipCard(6)">
+          <div class="flip-front">
+            <div class="flip-front-icon">✨</div>
+            <div class="flip-front-text">Touch me to reveal my answer</div>
+            <div class="flip-hint">tap to flip</div>
+          </div>
+          <div class="flip-back">
+            <div class="flip-back-icon">🌙</div>
+            <div class="flip-back-text">
+              If I have to pick one trait I would choose your sense of humor and
+              your laughter.
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="continue-btn" id="next-6" onclick="goLetter()">
+        Read your letter 💌
+      </button>
+    </div>
+
+    <!-- ══════════ LETTER PAGE ══════════ -->
+    <div class="page" id="page-letter">
+      <div class="letter-wrap">
+        <div class="letter-icon">💌</div>
+        <div class="letter-title">A letter, just for you.</div>
+        <div class="letter-card">
+          <span class="letter-salutation">My dearest Mawada,</span>
+          <div class="letter-body" id="letter-body" dir="ltr"></div>
+          <span class="letter-sign" id="letter-sign"
+            >Forever yours, with all my heart. 🌹</span
+          >
+        </div>
+        <button
+          class="confetti-btn"
+          id="confetti-btn"
+          onclick="launchConfetti()"
+        >
+          💕 You inspire my creativity
+        </button>
+      </div>
+    </div>
+
+    <script>
+      // ══════════════════════════════════════════
+      //  FIREBASE CONFIG — replace with your own
+      // ══════════════════════════════════════════
+      const DB = "https://test-ff98d-default-rtdb.firebaseio.com";
+
+      // ── Petals ──
+      const pc = document.getElementById("petals");
+      for (let i = 0; i < 24; i++) {
+        const p = document.createElement("div");
+        p.className = "petal";
+        const sz = 6 + Math.random() * 12;
+        p.style.cssText = `left:${
+          Math.random() * 100
+        }vw;width:${sz}px;height:${sz}px;animation-duration:${
+          6 + Math.random() * 10
+        }s;animation-delay:${Math.random() * 12}s;opacity:${
+          0.3 + Math.random() * 0.4
+        }`;
+        pc.appendChild(p);
+      }
+
+      // ── State ──
+      let currentPage = 0;
+      const answers = {};
+      const TOTAL = 6;
+
+      function updateProgress(page) {
+        const pct = page === 0 ? 0 : Math.round((page / TOTAL) * 100);
+        document.getElementById("progress").style.width = pct + "%";
+      }
+
+      function showPage(id) {
+        document
+          .querySelectorAll(".page")
+          .forEach((p) => p.classList.remove("active"));
+        const el = document.getElementById("page-" + id);
+        if (el) {
+          el.classList.add("active");
+          window.scrollTo(0, 0);
+        }
+      }
+
+      // ── Landing ──
+      function startQuiz() {
+        currentPage = 1;
+        updateProgress(1);
+        showPage(1);
+      }
+
+      // ── Multiple choice ──
+      function selectChoice(q, btn, val) {
+        document
+          .querySelectorAll(`#choices-${q} .choice-btn`)
+          .forEach((b) => b.classList.remove("selected"));
+        btn.classList.add("selected");
+        answers[q] = val;
+        document.getElementById("submit-" + q).disabled = false;
+      }
+
+      // ── Essay ──
+      function enableEssaySubmit(q) {
+        const val = document.getElementById("essay-" + q).value.trim();
+        document.getElementById("submit-" + q).disabled = val.length < 3;
+        if (val.length >= 3) answers[q] = val;
+      }
+
+      // ── Submit ──
+      function submitAnswer(q) {
+        // Save to Firebase
+        const payload = {
+          question: q,
+          answer: answers[q] || "",
+          type: q === 1 || q === 4 ? "choice" : "essay",
+          ts: Date.now(),
+        };
+        fetch(`${DB}/quiz-answers/q${q}.json`, {
+          method: "PUT",
+          body: JSON.stringify(payload),
+        }).catch(() => {});
+
+        // Disable submit, show flip card
+        document.getElementById("submit-" + q).disabled = true;
+        document.getElementById("submit-" + q).textContent = "Saved ✓";
+
+        const flip = document.getElementById("flip-" + q);
+        flip.classList.add("visible");
+        flip.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+
+      // ── Flip card ──
+      function flipCard(q) {
+        const fc = document.getElementById("fc-" + q);
+        fc.classList.toggle("flipped");
+        // Show continue after flip
+        setTimeout(() => {
+          const nb = document.getElementById("next-" + q);
+          nb.classList.add("visible");
+          nb.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }, 800);
+      }
+
+      // ── Next question ──
+      function goNext(q) {
+        currentPage = q;
+        updateProgress(q);
+        showPage(q);
+      }
+
+      // ══════════════════════════════════════════
+      //  LETTER ANIMATION
+      // ══════════════════════════════════════════
+      const LETTER_TEXT = `هتتعودي 
+      بعدها فضلتي تبصي لتحت ولفوق لمدة ثواني ثم تغيرت ملامحك، قادر حاليا اعرف انتي زعلانة ومتضايقة ولا لا 
+      بعد الموقف ده حصل من كل واحد فينا حركة في قمة اللطافة وهي انه كل طرف ابتدى يفكر في حل مريح للطرف الآخر 
+      الحركة دي فرقت معايا جدا واتوقع معاكي شوية 
+      بعدها جتلي فكرة قد تجديها في منتهى الاستغراب ولكن لو كل الخلافات معاكي هتمشي بالشكل ده ف هي دي الفتاة اللي احب اتخانق معاها 🤣🤣
+      ونا بتكلم معاكي سواء فالشات او الواقع بحس بإرتياح واني ممكن اتكلم ف اي حاجة واكون مسموع عادي وده احساس اكثر من رائع
+      حاليا انتي اجمل جزء في يومي 
+      لو هوصفك ف جملة من البداية حتى الأن هقول : 
+      what a plot twist you were. 
+       `;
+
+      function goLetter() {
+        showPage("letter");
+        updateProgress(TOTAL);
+        setTimeout(() => animateLetter(), 400);
+      }
+
+      function animateLetter() {
+        const body = document.getElementById("letter-body");
+        body.innerHTML = "";
+        let i = 0;
+        const chars = LETTER_TEXT.split("");
+        const total = chars.length;
+
+        function next() {
+          if (i >= total) {
+            // Show signature
+            setTimeout(() => {
+              document.getElementById("letter-sign").classList.add("show");
+            }, 600);
+            setTimeout(() => {
+              document.getElementById("confetti-btn").classList.add("show");
+            }, 1400);
+            return;
+          }
+          const ch = chars[i];
+          if (ch === "\n") {
+            body.appendChild(document.createElement("br"));
+            if (chars[i + 1] === "\n") {
+              body.appendChild(document.createElement("br"));
+              i++;
+            }
+          } else {
+            const span = document.createElement("span");
+            span.className = "char";
+            span.textContent = ch;
+            span.style.animationDelay = "0ms";
+            body.appendChild(span);
+          }
+          i++;
+          // Speed: punctuation = longer pause
+          const delay = ".!?,\n".includes(ch) ? 300 : 100;
+          setTimeout(next, delay);
+        }
+        next();
+      }
+
+      // ── Confetti ──
+      function launchConfetti() {
+        const colors = [
+          "#b5294e",
+          "#f4a0bf",
+          "#c49a5a",
+          "#ffffff",
+          "#fdeef3",
+          "#d63f6a",
+        ];
+        for (let i = 0; i < 80; i++) {
+          const c = document.createElement("div");
+          c.className = "confetti-piece";
+          const sz = 6 + Math.random() * 10;
+          c.style.cssText = `
+      left:${Math.random() * 100}vw;
+      top:-10px;
+      width:${sz}px; height:${sz}px;
+      background:${colors[Math.floor(Math.random() * colors.length)]};
+      border-radius:${Math.random() > 0.5 ? "50%" : "2px"};
+      animation-duration:${2 + Math.random() * 2}s;
+      animation-delay:${Math.random() * 0.5}s;
+    `;
+          document.body.appendChild(c);
+          setTimeout(() => c.remove(), 4500);
+        }
+      }
+    </script>
+  </body>
+</html>
